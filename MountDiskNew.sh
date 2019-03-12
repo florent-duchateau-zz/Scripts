@@ -54,3 +54,15 @@ mount /dev/sde /shared_storage
 UUID=`blkid -u filesystem /dev/sde|awk -F "[= ]" '{print $3}'`
 LINE="UUID=${UUID}\t/shared_storage\text4\t${MOUNT_OPTIONS}\t0\t0"
 echo -e "${LINE}" >> /etc/fstab
+
+#create softlink to keep structure identical to old node 1
+cd /mnt
+ln -s /backup_storage backup_storage
+
+#create directory structure for all servers
+cd /shared_storage
+mkdir elastic_storage
+mkdir session
+mkdir transaction_storage
+
+
