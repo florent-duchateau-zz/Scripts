@@ -23,7 +23,7 @@ log 'prepare datadisks'
 
 sudo bash MountDiskNew.sh >> $LOGFILE
 
-exit 1
+exit 0
 # stopping script for testing
 
 
