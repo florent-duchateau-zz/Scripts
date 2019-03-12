@@ -21,7 +21,7 @@ log "run installmanaged.sh"
 
 log 'prepare datadisks'
 
-sudo bash prepare_vm_disks.sh >> $LOGFILE
+sudo bash MountDiskNew.sh >> $LOGFILE
 
 exit 1
 # stopping script for testing
