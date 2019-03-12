@@ -18,7 +18,7 @@ echo "mounting volume"
 mount /dev/sdc /metric_storage
 
 UUID=`blkid -u filesystem /dev/sdc|awk -F "[= ]" '{print $3}'`
-LINE="UUID=${UUID}\t/dev/sdc/\text4\t${MOUNT_OPTIONS}\t0 0"
+LINE="UUID=${UUID}\t/metric_storage\text4\t${MOUNT_OPTIONS}\t0\t0"
 echo -e "${LINE}" >> /etc/fstab
 
 #volume 2 (backup)
@@ -35,7 +35,7 @@ echo "mounting volume"
 mount /dev/sdd /backup_storage
 
 UUID=`blkid -u filesystem /dev/sdd|awk -F "[= ]" '{print $3}'`
-LINE="UUID=${UUID}\t/dev/sdd/\text4\t${MOUNT_OPTIONS}\t0 0"
+LINE="UUID=${UUID}\t/backup_storage\text4\t${MOUNT_OPTIONS}\t0\t0"
 echo -e "${LINE}" >> /etc/fstab
 
 #volume 3 (shared)
@@ -52,5 +52,5 @@ echo "mounting volume"
 mount /dev/sde /shared_storage
 
 UUID=`blkid -u filesystem /dev/sde|awk -F "[= ]" '{print $3}'`
-LINE="UUID=${UUID}\t/dev/sde/\text4\t${MOUNT_OPTIONS}\t0 0"
+LINE="UUID=${UUID}\t/shared_storage\text4\t${MOUNT_OPTIONS}\t0\t0"
 echo -e "${LINE}" >> /etc/fstab
