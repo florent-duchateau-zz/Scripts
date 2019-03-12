@@ -2,7 +2,7 @@
 
 #ugly script with no functions. Will only run once.
 
-MOUNT_OPTIONS="noatime,nodiratime,nodev,noexec,nosuid,nofail"
+MOUNT_OPTIONS="defaults"
 
 #volume 1 (metric)
 echo "calling parted, label"
@@ -18,7 +18,7 @@ echo "mounting volume"
 mount /dev/sdc /metric_storage
 
 UUID=`blkid -u filesystem /dev/sdc|awk -F "[= ]" '{print $3}'`
-LINE="UUID=${UUID}      /dev/sdc/       ext4    ${MOUNT_OPTIONS}        1 2"
+LINE="UUID=${UUID}\t/dev/sdc/\text4\t${MOUNT_OPTIONS}\t0 0"
 echo -e "${LINE}" >> /etc/fstab
 
 #volume 2 (backup)
@@ -35,7 +35,7 @@ echo "mounting volume"
 mount /dev/sdd /backup_storage
 
 UUID=`blkid -u filesystem /dev/sdd|awk -F "[= ]" '{print $3}'`
-LINE="UUID=${UUID}      /dev/sdd/       ext4    ${MOUNT_OPTIONS}        1 2"
+LINE="UUID=${UUID}\t/dev/sdd/\text4\t${MOUNT_OPTIONS}\t0 0"
 echo -e "${LINE}" >> /etc/fstab
 
 #volume 3 (shared)
@@ -52,5 +52,5 @@ echo "mounting volume"
 mount /dev/sde /shared_storage
 
 UUID=`blkid -u filesystem /dev/sde|awk -F "[= ]" '{print $3}'`
-LINE="UUID=${UUID}      /dev/sde/       ext4    ${MOUNT_OPTIONS}        1 2"
+LINE="UUID=${UUID}\t/dev/sde/\text4\t${MOUNT_OPTIONS}\t0 0"
 echo -e "${LINE}" >> /etc/fstab
