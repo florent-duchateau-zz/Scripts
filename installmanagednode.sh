@@ -17,7 +17,7 @@ log() {
 log "run installmanagednode.sh"
 
 log 'prepare datadisks'
-sudo bash prepare_vm_disks.sh 1>> $LOGFILE
+sudo bash MountDiskNew.sh 1>> $LOGFILE
 
 exit 1
 # stopping script for testing
