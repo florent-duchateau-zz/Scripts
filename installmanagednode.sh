@@ -19,7 +19,7 @@ log "run installmanagednode.sh"
 log 'prepare datadisks'
 sudo bash MountDiskNew.sh 1>> $LOGFILE
 
-exit 1
+exit 0
 # stopping script for testing
 
 log 'download latest installer'
