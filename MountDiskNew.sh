@@ -87,6 +87,7 @@ cd /backup_storage
 mkdir agents
 cd /var/opt
 mkdir dynatrace-managed 
+cd dynatrace-managed
 ln -s /backup_storage/agents agents 
 cd /backup_storage
 chown dynatrace:dynatrace agents
