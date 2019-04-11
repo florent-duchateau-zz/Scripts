@@ -92,6 +92,6 @@ ln -s /backup_storage/agents agents
 cd /backup_storage
 chown dynatrace:dynatrace agents
 
-chown -R dynatrace:dynatrace /shared-storage
-chown -R dynatrace:dynatrace /metric-storage
-chown -R dynatrace:dynatrace /backup-storage
+chown -R dynatrace:dynatrace /shared_storage
+chown -R dynatrace:dynatrace /metric_storage
+chown -R dynatrace:dynatrace /backup_storage
